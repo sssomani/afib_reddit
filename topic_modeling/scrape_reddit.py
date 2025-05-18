@@ -141,26 +141,20 @@ def preprocess_db(df):
 if __name__ == '__main__':
 
     """
-    Scrape Reddit for all GLP1-RA-related keywords.
+    Scrape Reddit for all AFib-related keywords.
     """
     
     parser = argparse.ArgumentParser()
     parser.add_argument('output_dir', type='str', help='Path to save dataset')
     args = parser.parse_args()
 
-    glp1_strings = ['semaglutide', 'rybelsus', 'wegovy', 'ozempic',
-                    'retatrutide',
-                    'dulaglutide', 'trulicity',
-                    'tirzepatide', 'mounjaro',
-                    'liraglutide', 'saxenda',
-                    'exenatide', 'bydureon', 'byetta',
-                    'lixisenatide', 'adlyxin']
+    afib_strings = ['atrial fibrillation', 'atrial flutter', 'afib']
 
-    glp1_db = get_reddit_data(glp1_strings, args.output_dir)
-    glp1_db = preprocess_db(glp1_db)
-    glp1_db.to_pickle(args.output_dir + 'full_db.pickle')
+    afib_db = get_reddit_data(afib_strings, args.output_dir)
+    afib_db = preprocess_db(afib_db)
+    afib_db.to_pickle(args.output_dir + 'full_db.pickle')
 
     try:
-        glp1_db.to_excel(args.output_dir + 'full_db.xlsx')
+        afib_db.to_excel(args.output_dir + 'full_db.xlsx')
     except:
         print('Failed to export Excel file.')
