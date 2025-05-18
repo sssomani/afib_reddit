@@ -530,7 +530,7 @@ class GroupLabeling():
 if __name__ == '__main__':
     # Enter input data via argparse.
     parser = argparse.ArgumentParser()
-    parser.add_argument('data', type='str', default='data/cac_db.xlsx', help='Path to dataset')
+    parser.add_argument('data', type='str', default='data/afib_db.xlsx', help='Path to dataset')
     parser.add_argument('output', type='str', default='data/topic_model_res.xlsx', help='Path to save topic, group labels')
     args = parser.parse_args()
 
